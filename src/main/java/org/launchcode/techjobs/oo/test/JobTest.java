@@ -18,6 +18,7 @@ public class JobTest {
   private Job jobTwoNoFields;
   private Job jobThreeWithFields;
   private Job jobFourWithFields;
+  private Job jobFive;
 
 
   @Before
@@ -38,6 +39,7 @@ public class JobTest {
         new PositionType("Quality control"),
         new CoreCompetency("Persistence")
     );
+
   }
 
   @Test

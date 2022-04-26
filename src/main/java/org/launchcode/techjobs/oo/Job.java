@@ -45,16 +45,16 @@ public class Job {
             if (name.equals("")){
                 name = "Data not available";
             }
-            if (employer.getValue().equals("") || employer.getValue() == null){
+            if (employer.getValue().equals("")){
                 employer.setValue("Data not available");
             }
-            if (location.getValue().equals("") || location.getValue() == null){
+            if (location.getValue().equals("")){
                 location.setValue("Data not available");
             }
-            if (coreCompetency.getValue().equals("") || coreCompetency.getValue() == null){
+            if (coreCompetency.getValue().equals("")){
                 coreCompetency.setValue("Data not available");
             }
-            if (positionType.getValue().equals("") || positionType.getValue() == null){
+            if (positionType.getValue().equals("")){
                 positionType.setValue("Data not available");
             }
 
