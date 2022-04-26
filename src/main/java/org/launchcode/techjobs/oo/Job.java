@@ -2,10 +2,10 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
-public class Job {
+public class Job extends JobField{
 
-    private int id;
-    private static int nextId = 1;
+//    private int id;
+//    private static int nextId = 1;
 
     private String name;
     private Employer employer;
@@ -17,12 +17,12 @@ public class Job {
     //  other five fields. The second constructor should also call the first in order to initialize
     //  the 'id' field.
     public Job() {
-        this.id = nextId;
-        nextId++;
+//        this.id = nextId;
+//        nextId++;
+        super();
     }
 
     public Job(String aName, Employer aEmployer, Location aLocation, PositionType aPositionType, CoreCompetency aCoreCompetency) {
-        this();
         this.name = aName;
         this.employer = aEmployer;
         this.location = aLocation;
@@ -58,7 +58,7 @@ public class Job {
                 positionType.setValue("Data not available");
             }
 
-            output = "\nID: " + id +
+            output = "\nID: " + this.getId() +
                 "\nName: " + name +
                 "\nEmployer: " + employer +
                 "\nLocation: " + location +
@@ -70,18 +70,18 @@ public class Job {
         return output;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Job job = (Job) o;
-        return id == job.id;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Job job = (Job) o;
+//        return this.getId() == job.getId();
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(this.getId());
+//    }
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
@@ -125,7 +125,4 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
-    public int getId() {
-        return id;
-    }
 }
