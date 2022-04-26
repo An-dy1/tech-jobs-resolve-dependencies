@@ -32,6 +32,7 @@ public class TestTaskFour extends AbstractTest {
         }
     }
 
+    // this test passes only if you have the test job assignment/initialization in the test block, not in the Before block
     @Test
     public void testTestSettingJobIdCallsJobConstructorTwice (@Mocked Job job) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
         Class jobTestClass = getClassByName("test.JobTest");
@@ -76,6 +77,7 @@ public class TestTaskFour extends AbstractTest {
         }
     }
 
+    // not sure why this one is failing
     @Test
     public void testTestJobConstructorSetsAllFieldsCallsAsserts (@Mocked Assert mockedAssert) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Class jobTestClass = getClassByName("test.JobTest");

@@ -29,6 +29,7 @@ public class TestTaskFive extends AbstractTest {
         }
     }
 
+    // only passes if your test job object is literally called 'job'
     @Test
     public void testTestToStringStartsAndEndsWithNewLineCallsToString (@Mocked Job job) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
         Class jobTestClass = getClassByName("test.JobTest");

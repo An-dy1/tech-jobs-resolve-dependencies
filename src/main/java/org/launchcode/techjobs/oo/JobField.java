@@ -13,6 +13,11 @@ public abstract class JobField {
     nextId++;
   }
 
+  public JobField(String value) {
+    this();
+    this.value = value;
+  }
+
   @Override
   public String toString() {
     return value;
@@ -31,9 +36,7 @@ public abstract class JobField {
     return Objects.hash(id);
   }
 
-  public JobField(String value) {
-    this.value = value;
-  }
+
 
   public String getValue() {
     return value;

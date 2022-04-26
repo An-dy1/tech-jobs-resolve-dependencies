@@ -1,5 +1,6 @@
 package org.launchcode.techjobs.oo.test;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -45,6 +46,8 @@ public class JobTest {
   @Test
   public void testSettingJobId() {
 
+    jobOneNoFields = new Job();
+    jobTwoNoFields = new Job();
     assertFalse(jobOneNoFields.getId() == jobTwoNoFields.getId());
 //    assertTrue(testJobTwo.getId() - testJobOne.getId() == 1);
     assertEquals(1, jobTwoNoFields.getId() - jobOneNoFields.getId());
@@ -53,11 +56,18 @@ public class JobTest {
 
   @Test
   public void testJobConstructorSetsAllFields() {
-    assertEquals(jobThreeWithFields.getName(), "Product tester");
-    assertEquals(jobThreeWithFields.getEmployer().getValue(), "ACME");
-    assertEquals(jobThreeWithFields.getPositionType().getValue(), "Quality control");
-    assertEquals(jobThreeWithFields.getCoreCompetency().getValue(), "Persistence");
-    assertTrue(jobThreeWithFields instanceof Job);
+    Assert.assertEquals("Product tester", jobThreeWithFields.getName());
+    Assert.assertEquals(jobThreeWithFields.getEmployer().getValue(), "ACME");
+    Assert.assertEquals(jobThreeWithFields.getPositionType().getValue(), "Quality control");
+    Assert.assertEquals(jobThreeWithFields.getCoreCompetency().getValue(), "Persistence");
+    Assert.assertEquals("Desert", jobThreeWithFields.getLocation().getValue());
+
+    Assert.assertTrue(jobThreeWithFields instanceof Job);
+    Assert.assertTrue(jobThreeWithFields.getName() != null);
+    Assert.assertTrue(jobThreeWithFields.getName() != null);
+    Assert.assertTrue(jobThreeWithFields.getName() != null);
+    Assert.assertTrue(jobThreeWithFields.getName() != null);
+    Assert.assertTrue(jobThreeWithFields.getName() != null);
   }
 
   @Test
@@ -66,8 +76,13 @@ public class JobTest {
   }
 
   @Test
-  public void testJobToStringBeginsWithSpacesAndEnds() {
-    String jobThreeToString = jobThreeWithFields.toString();
+  public void testToStringStartsAndEndsWithNewLine() {
+    Job job = new Job("Product tester",
+        new Employer("ACME"),
+        new Location("Desert"),
+        new PositionType("Quality control"),
+        new CoreCompetency("Persistence"));
+    String jobThreeToString = job.toString();
 
     char firstChar = jobThreeToString.charAt(0);
     char lastChar = jobThreeToString.toString().charAt(jobThreeToString.length() - 1);
@@ -107,6 +122,12 @@ public class JobTest {
 
     String expectedOutput = "OOPS! This job does not seem to exist.";
     assertEquals(expectedOutput, jobOneNoFields.toString());
+
+  }
+
+  @Test
+  public void canInitializeANewLocation() {
+    Location location = new Location("KC");
 
   }
 
